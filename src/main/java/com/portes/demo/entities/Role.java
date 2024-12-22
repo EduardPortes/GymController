@@ -13,6 +13,7 @@ public class Role implements Serializable {
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "roleId")
     private UUID roleId;
+
     @Column(name = "name")
     private String name;
 

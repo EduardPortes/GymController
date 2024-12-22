@@ -1,25 +1,57 @@
 package com.portes.demo.entities;
 
-public class Exercise {
+import jakarta.persistence.*;
 
-    private int ExerciseID;
+import java.io.Serializable;
+import java.util.UUID;
+
+@Entity
+@Table(name = "exercise")
+public class Exercise implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(name = "exerciseID")
+    private UUID exerciseID;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "description")
     private String description;
+
+    @Column(name = "videoUrl")
     private String videoUrl;
+
+    @Column(name = "imageUrl")
     private String imageUrl;
+
+    @Column(name = "category")
     private String category;
+
+    @Column(name = "difficulty")
     private String difficulty;
+
+    @Column(name = "muscle")
     private String muscle;
+
+    @Column(name = "instructions")
     private String instructions;
+
+    @Column(name = "tips")
     private String tips;
+
+    @Column(name = "warning")
     private String warning;
+
+    @Column(name = "benefits")
     private String benefits;
 
     public Exercise() {
     }
 
-    public Exercise(int ExerciseID,String name, String description, String videoUrl, String imageUrl, String category, String difficulty, String muscle, String instructions, String tips, String warning, String benefits) {
-        this.ExerciseID = ExerciseID;
+    public Exercise(UUID ExerciseID,String name, String description, String videoUrl, String imageUrl, String category, String difficulty, String muscle, String instructions, String tips, String warning, String benefits) {
+        this.exerciseID = ExerciseID;
         this.name = name;
         this.description = description;
         this.videoUrl = videoUrl;
@@ -33,12 +65,12 @@ public class Exercise {
         this.benefits = benefits;
     }
 
-    public int getExerciseID() {
-        return ExerciseID;
+    public UUID getExerciseID() {
+        return exerciseID;
     }
 
-    public void setExerciseID(int ExerciseID) {
-        this.ExerciseID = ExerciseID;
+    public void setExerciseID(UUID ExerciseID) {
+        this.exerciseID = ExerciseID;
     }
 
     public String getName() {
