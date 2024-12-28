@@ -1,0 +1,58 @@
+USE
+database_gymapp;
+
+CREATE TABLE exercise
+(
+    exerciseID   CHAR(36) PRIMARY KEY,
+    name         VARCHAR(255) NOT NULL,
+    description  VARCHAR(255),
+    videoUrl     VARCHAR(255),
+    imageUrl     VARCHAR(255),
+    category     VARCHAR(255),
+    difficulty   VARCHAR(255),
+    muscle       VARCHAR(255),
+    instructions VARCHAR(255),
+    tips         VARCHAR(255),
+    warning      VARCHAR(255),
+    benefits     VARCHAR(255)
+);
+
+INSERT INTO exercise (exerciseID, name, description, videoUrl, imageUrl, category, difficulty, muscle, instructions,
+                      tips, warning, benefits)
+VALUES (UUID(), 'Levantamento Terra',
+        'Exercício composto que trabalha principalmente as costas, glúteos e pernas, sendo uma das melhores opções para aumentar a força geral.',
+        'http://example.com/levantamentoterra', 'http://example.com/levantamentoterra.jpg', 'Força', 'Difícil',
+        'Costas, Glúteos, Pernas',
+        'Posicione os pés na largura dos ombros, segure a barra com as mãos ligeiramente mais afastadas que os ombros, e mantenha as costas retas ao levantar e abaixar a barra.',
+        'Evite arredondar as costas durante o movimento. Mantenha os ombros para trás e o quadril alinhado com o torso.',
+        'Não faça o levantamento com sobrecarga excessiva sem a técnica adequada. Evite se sentir dor na lombar.',
+        'Melhora a força global, especialmente nas costas, glúteos e pernas, além de ajudar na estabilidade do core e postura.'),
+       (UUID(), 'Supino',
+        'Exercício clássico de força, ideal para trabalhar o peito, ombros e tríceps, sendo excelente para aumentar a força na parte superior do corpo.',
+        'http://example.com/supino', 'http://example.com/supino.jpg', 'Força', 'Médio', 'Peito, Ombros, Tríceps',
+        'Deite-se no banco, com os pés firmemente no chão e a barra alinhada com o peito. Abaixe a barra controladamente até o peito e empurre-a de volta.',
+        'Mantenha os ombros relaxados e não arqueie a lombar. Controle o movimento para evitar lesões.',
+        'Não arqueie excessivamente as costas, nem balance o peso. Evite se tiver dor no ombro ou nas articulações.',
+        'Aumenta a força no peito, ombros e tríceps, além de melhorar a estabilidade do tronco.'),
+       (UUID(), 'Barra Fixa',
+        'Exercício desafiador para fortalecer as costas e os braços, sendo uma das melhores opções para trabalhar a parte superior do corpo.',
+        'http://example.com/barrafixa', 'http://example.com/barrafixa.jpg', 'Força', 'Difícil', 'Costas, Bíceps',
+        'Puxe o corpo para cima até que o queixo ultrapasse a barra, mantendo as pernas esticadas e o corpo reto.',
+        'Evite balançar o corpo ou usar o impulso. Foque na força dos braços e costas para o movimento.',
+        'Evite se tiver dor no ombro ou nas articulações do cotovelo.',
+        'Fortalece os músculos das costas e bíceps, melhora a postura e a força da parte superior do corpo.'),
+       (UUID(), 'Rosca Bíceps',
+        'Exercício isolado para trabalhar o bíceps, ideal para melhorar a definição e força dos braços.',
+        'http://example.com/roscabiceps', 'http://example.com/roscabiceps.jpg', 'Força', 'Fácil', 'Bíceps',
+        'Fique em pé, com os cotovelos próximos ao corpo, e levante o peso com as palmas das mãos voltadas para cima até o nível do peito.',
+        'Não balance os pesos e mantenha os cotovelos fixos. Evite movimentos bruscos.',
+        'Evite se sentir dor nos cotovelos ou se tiver lesões nas articulações.',
+        'Melhora a definição e força dos bíceps, além de proporcionar um melhor equilíbrio muscular nos braços.'),
+       (UUID(), 'Mergulho Tríceps',
+        'Exercício eficaz para trabalhar os tríceps, ajudando a fortalecer a parte posterior dos braços.',
+        'http://example.com/mergulhotriceps', 'http://example.com/mergulhotriceps.jpg', 'Força', 'Médio',
+        'Tríceps, Peito',
+        'Sente-se em um banco ou barra fixa, com as mãos apoiadas ao lado do corpo. Abaixe o corpo controladamente até que os cotovelos atinjam 90 graus, depois empurre de volta para cima.',
+        'Mantenha o corpo reto e evite que os ombros subam. Concentre-se em trabalhar os tríceps.',
+        'Evite se tiver dor no ombro ou nas articulações do cotovelo. Não deixe os ombros caírem excessivamente.',
+        'Fortalece os tríceps, melhora a definição dos braços e auxilia no fortalecimento do peitoral.');
