@@ -11,8 +11,8 @@ public class Exercise implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "exerciseID", columnDefinition = "CHAR(36)")
-    private UUID exerciseID;
+    @Column(name = "exerciseID")
+    private String exerciseID;
 
     @Column(name = "name")
     private String name;
@@ -32,8 +32,9 @@ public class Exercise implements Serializable {
     @Column(name = "difficulty")
     private String difficulty;
 
-    @Column(name = "muscle")
-    private String muscle;
+    @ManyToOne
+    @JoinColumn(name = "musclegroupid")
+    private MusclesGroup musclesgroup;
 
     @Column(name = "instructions")
     private String instructions;
@@ -50,7 +51,7 @@ public class Exercise implements Serializable {
     public Exercise() {
     }
 
-    public Exercise(UUID ExerciseID,String name, String description, String videoUrl, String imageUrl, String category, String difficulty, String muscle, String instructions, String tips, String warning, String benefits) {
+    public Exercise(String ExerciseID, String name, String description, String videoUrl, String imageUrl, String category, String difficulty, MusclesGroup muscle, String instructions, String tips, String warning, String benefits) {
         this.exerciseID = ExerciseID;
         this.name = name;
         this.description = description;
@@ -58,18 +59,18 @@ public class Exercise implements Serializable {
         this.imageUrl = imageUrl;
         this.category = category;
         this.difficulty = difficulty;
-        this.muscle = muscle;
+        this.musclesgroup = muscle;
         this.instructions = instructions;
         this.tips = tips;
         this.warning = warning;
         this.benefits = benefits;
     }
 
-    public UUID getExerciseID() {
+    public String getExerciseID() {
         return exerciseID;
     }
 
-    public void setExerciseID(UUID ExerciseID) {
+    public void setExerciseID(String ExerciseID) {
         this.exerciseID = ExerciseID;
     }
 
@@ -121,12 +122,12 @@ public class Exercise implements Serializable {
         this.difficulty = difficulty;
     }
 
-    public String getMuscle() {
-        return muscle;
+    public MusclesGroup getMusclesGroup() {
+        return musclesgroup;
     }
 
-    public void setMuscle(String muscle) {
-        this.muscle = muscle;
+    public void setMusclesGroup(MusclesGroup muscle) {
+        this.musclesgroup = muscle;
     }
 
     public String getInstructions() {

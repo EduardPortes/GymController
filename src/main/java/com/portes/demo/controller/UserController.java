@@ -24,8 +24,7 @@ public class UserController {
                               @RequestParam(required = false) String name,
                               @RequestParam(required = false) String email,
                               @RequestParam(required = false) UserType userType) {
-        List<User> users = userService.filtrar(userId, name, email, userType);
-        return users;
+        return userService.filtrar(userId, name, email, userType);
     }
 
 }
