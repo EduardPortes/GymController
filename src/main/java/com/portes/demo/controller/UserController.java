@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/user")
@@ -20,7 +19,7 @@ public class UserController {
     private UserService userService;
     
     @GetMapping
-    public List<User> filtrar(@RequestParam(required = false) UUID userId,
+    public List<User> filtrar(@RequestParam(required = false) String userId,
                               @RequestParam(required = false) String name,
                               @RequestParam(required = false) String email,
                               @RequestParam(required = false) UserType userType) {

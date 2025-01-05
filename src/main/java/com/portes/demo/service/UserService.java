@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.UUID;
 
 @Service
 public class UserService {
@@ -15,8 +14,8 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public List<User> filtrar(UUID userId, String name, String email, UserType userType) {
-        return userRepository.filtrar(userId, name, email, userType);
+    public List<User> filtrar(String userID, String name, String email, UserType userType) {
+        return userRepository.filtrar(userID, name, email, userType);
     }
 
     public User authenticate(String username, String password) {

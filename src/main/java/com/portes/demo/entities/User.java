@@ -2,7 +2,6 @@ package com.portes.demo.entities;
 
 import jakarta.persistence.*;
 import java.io.Serializable;
-import java.util.UUID;
 
 @Entity
 @Table(name = "user")
@@ -10,8 +9,8 @@ public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "userId", columnDefinition = "CHAR(36)")
-    private UUID userId;
+    @Column(name = "userID")
+    private String userID;
 
     @Column(name = "name")
     private String name;
@@ -29,20 +28,20 @@ public class User implements Serializable {
     public User() {
     }
 
-    public User(UUID userId, String name, String email, String password, UserType userType) {
-        this.userId = userId;
+    public User(String userID, String name, String email, String password, UserType userType) {
+        this.userID = userID;
         this.name = name;
         this.email = email;
         this.password = password;
         this.userType = userType;
     }
 
-    public UUID getUserId() {
-        return userId;
+    public String getUserID() {
+        return userID;
     }
 
-    public void setUserId(UUID userId) {
-        this.userId = userId;
+    public void setUserID(String userID) {
+        this.userID = userID;
     }
 
     public String getName() {

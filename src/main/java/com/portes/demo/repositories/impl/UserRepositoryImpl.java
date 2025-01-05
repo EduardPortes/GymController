@@ -13,7 +13,6 @@ import jakarta.persistence.criteria.Root;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 public class UserRepositoryImpl implements UserRepositoryCustom {
 
@@ -21,7 +20,7 @@ public class UserRepositoryImpl implements UserRepositoryCustom {
     private EntityManager entityManager;
 
     @Override
-    public List<User> filtrar(UUID userId, String name, String email, UserType userType) {
+    public List<User> filtrar(String userID, String name, String email, UserType userType) {
 
         CriteriaBuilder cb = entityManager.getCriteriaBuilder();
         CriteriaQuery<User> cq = cb.createQuery(User.class);
@@ -29,8 +28,8 @@ public class UserRepositoryImpl implements UserRepositoryCustom {
 
         List<Predicate> predicates = new ArrayList<>();
 
-        if (userId != null) {
-            predicates.add(cb.equal(user.get("userId"), userId));
+        if (userID != null) {
+            predicates.add(cb.equal(user.get("userID"), userID));
         }
 
         if (name != null && !name.isEmpty()) {
