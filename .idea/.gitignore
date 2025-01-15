@@ -8,5 +8,7 @@
 /dataSources.local.xml
 /target/
 /target/*
-/application-dev.properties
-/application.properties
+# Application properties
+src/main/resources/application.properties
+src/main/resources/application-*.properties
+src/main/resources/application-dev.properties
